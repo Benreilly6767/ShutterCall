@@ -1,1 +1,5 @@
-
+<resources>
+    <string name="app_name">ShutterCall</string>
+    <string name="service_label">ShutterCall button</string>
+    <string name="service_desc">Reads the Bluetooth shutter button so it can show the caller, answer and end calls.</string>
+</resources>
