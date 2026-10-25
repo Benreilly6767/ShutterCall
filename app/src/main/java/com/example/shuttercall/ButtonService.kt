@@ -93,6 +93,10 @@ class ButtonService : AccessibilityService() {
         // Not in a call, or not our key: let Android handle it normally (camera shutter etc.)
         if (state == State.IDLE || event.keyCode !in triggerKeys) return false
 
+        // UPDATED: Ignore the phone's own physical buttons; accept only the external Bluetooth remote.
+        val dev = event.device
+        if (dev == null || dev.vendorId == 0) return false
+
         if (event.action == KeyEvent.ACTION_DOWN && event.repeatCount == 0) {
             val now = SystemClock.elapsedRealtime()
             if (now - lastClick > 500) {          // debounce
