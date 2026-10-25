@@ -34,9 +34,10 @@ class ButtonService : AccessibilityService() {
     private var tts: TextToSpeech? = null
     private var ttsReady = false
 
-    // Add or remove codes to match what your button sends (check the app's test screen).
+    // UPDATED: Added VOLUME_DOWN (25) so it catches both clicks from the selfie stick.
     private val triggerKeys = setOf(
-        KeyEvent.KEYCODE_VOLUME_UP,
+        KeyEvent.KEYCODE_VOLUME_UP,     // 24
+        KeyEvent.KEYCODE_VOLUME_DOWN,   // 25
         KeyEvent.KEYCODE_ENTER,
         KeyEvent.KEYCODE_DPAD_CENTER,
         KeyEvent.KEYCODE_CAMERA,
