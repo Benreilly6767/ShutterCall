@@ -62,7 +62,9 @@ class MainActivity : Activity() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
-        keyView.text = "Button sent: ${KeyEvent.keyCodeToString(keyCode)} ($keyCode)"
+        val dev = event.device
+        keyView.text = "Button sent: ${KeyEvent.keyCodeToString(keyCode)} ($keyCode)\n" +
+                "Device: ${dev?.name}\nVendorID: ${dev?.vendorId}  ProductID: ${dev?.productId}"
         return true
     }
 }
